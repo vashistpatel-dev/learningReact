@@ -1,35 +1,6 @@
-import reactImg from './assets/react-core-concepts.png';
-import componentsImg from './assets/components.png';
-
-const reactDescriptions = ['Fundamental', 'Crucial', 'Core'];
-function genRandomInt(max) {
-  return Math.floor(Math.random() * (max + 1));
-}
-
-function Header() {
-  const description = reactDescriptions[genRandomInt(2)];
-
-  return (
-    <header>
-      <img src={reactImg} alt="Stylized atom" />
-      <h1>React Essentials</h1>
-      <p>
-        {description} React concepts you will need for almost any app you are
-        going to build!
-      </p>
-    </header>
-  );
-}
-
-function CoreConcepts(props) {
-  return (
-    <li>
-      <img src={props.img} alt={props.title} />
-      <h3>{props.title}</h3>
-      <p>{props.description}</p>
-    </li>
-  );
-}
+import { CORE_CONCEPTS } from './data.js';
+import Header from './components/Header.jsx';
+import CoreConcepts from './components/CoreConcepts.jsx';
 
 function App() {
   return (
@@ -39,10 +10,10 @@ function App() {
         <section id='core-concepts'>
           <h2>Core Concepts</h2>
           <ul>
-            <CoreConcepts title='Componenets' description='The core UI building block.' img={componentsImg} />
-            <CoreConcepts title='Componenets' description='The core UI building block.' img={componentsImg} />
-            <CoreConcepts title='Componenets' description='The core UI building block.' img={componentsImg} />
-            <CoreConcepts title='Componenets' description='The core UI building block.' img={componentsImg} />
+            <CoreConcepts title={CORE_CONCEPTS[0].title} description={CORE_CONCEPTS[0].description} image={CORE_CONCEPTS[0].image} />
+            <CoreConcepts {...CORE_CONCEPTS[1]} />
+            <CoreConcepts {...CORE_CONCEPTS[2]} />
+            <CoreConcepts {...CORE_CONCEPTS[3]} />
           </ul>
         </section>
       </main>
