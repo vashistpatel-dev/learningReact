@@ -40,7 +40,7 @@ function App() { // App component function is only encountred in the beining hen
         <section id='core-concepts'>
           <h2>Core Concepts</h2>
           <ul>
-            {CORE_CONCEPTS.map((conceptItem) => (<CoreConcepts {...conceptItem} />))} reducing repetitive code and making it dynamic
+            {CORE_CONCEPTS.map((conceptItem) => (<CoreConcepts key={conceptItem.title} {...conceptItem} />))} {/* reducing repetitive code and making it dynamic */}
             {/* <CoreConcepts title={CORE_CONCEPTS[0].title} description={CORE_CONCEPTS[0].description} image={CORE_CONCEPTS[0].image} />
             <CoreConcepts {...CORE_CONCEPTS[1]} />
             <CoreConcepts {...CORE_CONCEPTS[2]} />
