@@ -32,14 +32,16 @@ export default function Examples() {
 
     return (
         <Section title='Examples' id='examples'>
-            <Tabs buttons={
-                <>
-                    <TabButton onClick={() => handleSelect('components')} isSelected={selectedTopic === 'components'}>Components</TabButton> {/* passing function as props to allow handleSelect have access to our JSX code */}
-                    <TabButton onClick={() => handleSelect('jsx')} isSelected={selectedTopic === 'jsx'}>JSX</TabButton> {/* in order to be able to pass vairables to fucntion from onSelect and avoid executing it then and there we can create a anonymous function. Now the whole arrow function gets passed to TabButton */}
-                    <TabButton onClick={() => handleSelect('props')} isSelected={selectedTopic === 'props'}>Props</TabButton>
-                    <TabButton onClick={() => handleSelect('state')} isSelected={selectedTopic === 'state'}>State</TabButton>
-                </>
-            }>
+            <Tabs
+                ButtonsContainer="menu"
+                buttons={
+                    <>
+                        <TabButton onClick={() => handleSelect('components')} isSelected={selectedTopic === 'components'}>Components</TabButton> {/* passing function as props to allow handleSelect have access to our JSX code */}
+                        <TabButton onClick={() => handleSelect('jsx')} isSelected={selectedTopic === 'jsx'}>JSX</TabButton> {/* in order to be able to pass vairables to fucntion from onSelect and avoid executing it then and there we can create a anonymous function. Now the whole arrow function gets passed to TabButton */}
+                        <TabButton onClick={() => handleSelect('props')} isSelected={selectedTopic === 'props'}>Props</TabButton>
+                        <TabButton onClick={() => handleSelect('state')} isSelected={selectedTopic === 'state'}>State</TabButton>
+                    </>
+                }>
                 {tabContent}
             </Tabs>
 
