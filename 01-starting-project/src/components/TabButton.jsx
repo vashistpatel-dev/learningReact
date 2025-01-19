@@ -1,7 +1,8 @@
-export default function TabButton({ children, onSelect, isSelected }) {
+export default function TabButton({ children, isSelected, ...props }) {
     console.log('TabButton Component Executing');
 
     return (
-        <li><button className={isSelected ? 'active' : undefined} onClick={onSelect}>{children}</button></li>
+        <li><button className={isSelected ? 'active' : undefined} {...props}>{children}</button></li>
     );
+    // onClick={onSelect} this was used to pass functions before we used props.
 }

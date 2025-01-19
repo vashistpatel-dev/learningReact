@@ -10,7 +10,6 @@ function App() { // App component function is only encountred in the beining hen
       <Header />
       <main>
         <CoreConcepts />
-
         <Examples />
 
       </main>

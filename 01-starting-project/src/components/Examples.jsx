@@ -1,6 +1,7 @@
-import { useState, Fragment } from 'react';
+import { useState } from 'react';
 import TabButton from './TabButton.jsx';
 import { EXAMPLES } from '../data.js';
+import Section from './Section.jsx';
 
 export default function Examples() {
     const [selectedTopic, setSelectedTopic] = useState(null);
@@ -29,12 +30,12 @@ export default function Examples() {
     }
 
     return (
-        <section id='examples'>
+        <Section title='Examples' id='examples'>
             <menu>
-                <TabButton onSelect={() => handleSelect('components')} isSelected={selectedTopic === 'components'}>Components</TabButton> {/* passing function as props to allow handleSelect have access to our JSX code */}
-                <TabButton onSelect={() => handleSelect('jsx')} isSelected={selectedTopic === 'jsx'}>JSX</TabButton> {/* in order to be able to pass vairables to fucntion from onSelect and avoid executing it then and there we can create a anonymous function. Now the whole arrow function gets passed to TabButton */}
-                <TabButton onSelect={() => handleSelect('props')} isSelected={selectedTopic === 'props'}>Props</TabButton>
-                <TabButton onSelect={() => handleSelect('state')} isSelected={selectedTopic === 'state'}>State</TabButton>
+                <TabButton onClick={() => handleSelect('components')} isSelected={selectedTopic === 'components'}>Components</TabButton> {/* passing function as props to allow handleSelect have access to our JSX code */}
+                <TabButton onClick={() => handleSelect('jsx')} isSelected={selectedTopic === 'jsx'}>JSX</TabButton> {/* in order to be able to pass vairables to fucntion from onSelect and avoid executing it then and there we can create a anonymous function. Now the whole arrow function gets passed to TabButton */}
+                <TabButton onClick={() => handleSelect('props')} isSelected={selectedTopic === 'props'}>Props</TabButton>
+                <TabButton onClick={() => handleSelect('state')} isSelected={selectedTopic === 'state'}>State</TabButton>
             </menu>
 
             {/* the && operator here will output the code after it if the condition before it is true */}
@@ -53,6 +54,6 @@ export default function Examples() {
             {/* If the selectedTopic is selected then show the code... or else keep null */}
             {/* we can make the above chunk of code even leaner by using vairbales */}
             {tabContent}
-        </section>
+        </Section>
     );
 }
